@@ -4,7 +4,7 @@ require('dotenv').config();
 const dbURI =
   process.env.NODE_ENV === 'production'
     ? '<<production database uri>>'
-    : 'mongodb://127.0.0.1:27017';
+    : 'mongodb://127.0.0.1:27017/ktrialDatabase';
 
 mongoose
   .connect(dbURI)
