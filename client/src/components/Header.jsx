@@ -7,7 +7,7 @@ export default function Header() {
     <header className="primary-header">
       <Nav />
       <HamburgerMenu />
-      <i class="fas fa-user-circle"></i>
+      <i className="fas fa-user-circle"></i>
     </header>
   );
 };
