@@ -6,7 +6,7 @@ const QuizQuestionSchema = new Schema(
     description: { type: String, required: true },
     timesAnsweredCorrectly: { type: Number, required: true },
     timesAnsweredIncorrectly: { type: Number, required: true },
-    choices: [{ type: Schema.Types.ObjectId, ref: 'QuizQuestionChoice' }]
+    choices: [{ choice: String, isCorrect: Boolean }]
   },
   { timestamps: true }
 );
