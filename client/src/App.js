@@ -3,8 +3,8 @@ import { Route } from 'react-router-dom';
 import LandingPage from './routes/LandingPage';
 import BrowsePage from './routes/BrowsePage';
 import AboutPage from './routes/AboutPage';
-import QuizStartPage from './routes/QuizStartPage';
 import QuizPage from './routes/QuizPage';
+import QuizCreationPage from './routes/QuizCreationPage';
 import UserLoginPage from './routes/UserLoginPage';
 import UserAccountSettingsPage from './routes/UserAccountSettingsPage';
 
@@ -14,9 +14,9 @@ function App() {
       <Route exact path="/" component={LandingPage} />
       <Route path="/browse" component={BrowsePage} />
       <Route path="/about" component={AboutPage} />
-      <Route path="/quiz/start" component={QuizStartPage} />
-      <Route path="/quiz/progress" component={QuizPage} />
-      <Route path="/user/login" component={UserLoginPage} />
+      <Route path="/quiz" component={QuizPage} />
+      <Route path="/quiz/creation" component={QuizCreationPage} />
+      <Route path="/login" component={UserLoginPage} />
       <Route
         path="/user/account-settings"
         component={UserAccountSettingsPage}
