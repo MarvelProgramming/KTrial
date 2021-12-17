@@ -6,6 +6,12 @@ const getRangeOfQuizzes = async (req, res) => {
   );
 };
 
+const createQuiz = async (req, res) => {
+  const result = await Quiz.insertMany(req.body);
+  res.status(201).send(`Inserted ${result}`);
+};
+
 module.exports = {
-  getRangeOfQuizzes
+  getRangeOfQuizzes,
+  createQuiz
 };
