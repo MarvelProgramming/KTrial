@@ -15,7 +15,7 @@ function App() {
       <Route path="/browse" component={BrowsePage} />
       <Route path="/quiz/creation" component={QuizCreationPage} />
       <Route path="/about" component={AboutPage} />
-      <Route path="/quiz" component={QuizPage} />
+      <Route exact path="/quiz" component={QuizPage} />
       <Route path="/login" component={UserLoginPage} />
       <Route
         path="/user/account-settings"
