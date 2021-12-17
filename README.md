@@ -53,7 +53,7 @@ An app that enables users to create quizzes and share them anywhere.
 
 Dark Mode: [Google Developers](https://web.dev/building-a-color-scheme/)
 
-Organization: [Trello](https://trello.com/b/fNyosNRS/snake-game-project)
+Organization: [Trello](https://trello.com/b/KDI5nk98/ktrial)
 
 Colors: [Coolors.co](https://coolors.co/)
 
@@ -65,4 +65,4 @@ Fonts: [Google Fonts](https://fonts.google.com/)
 
 CSS Normalize: [Normalize.css](https://necolas.github.io/normalize.css/)
 
-Web Design: [Whimsical](whimsical.com)
+Diagrams: [Whimsical](https://whimsical.com/ktrial-V3Enr2DRppbN4WHohNTJNX)
