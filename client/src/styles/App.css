@@ -7,7 +7,6 @@ body,
 #root,
 .App {
   height: 100%;
-  overflow: hidden;
 }
 
 .App > div {
@@ -126,6 +125,63 @@ body,
   border: 1px solid green;
 }
 
+.about-page main {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title {
+  color: green;
+  font-size: clamp(1rem, 3rem + 2vw, 10rem);
+  text-align: center;
+}
+
+.about-page p {
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  text-align: justify;
+  font-size: clamp(0.7rem, 0.5rem + 1vw, 2rem);
+}
+
+.about-page p span {
+  background-color: green;
+}
+
+.about-page > div {
+  width: 100%;
+  margin: auto 0;
+  padding-bottom: 5rem;
+}
+
+.about-page > div div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  width: 100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-page div i {
+  font-size: 2.5rem;
+  color: green;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.25, 2, 0.75, 0.7);
+}
+
+.about-page div i:hover {
+  transform: scale(1.5);
+}
+
+.about-page div i:nth-child(1) {
+  grid-column: 1 1;
+}
+
+.about-page div i:nth-child(2) {
+  grid-column: 2 2;
+}
+
 @media screen and (min-width: 600px) {
   .landing-page h1 {
     margin-bottom: 100px;
@@ -137,6 +193,11 @@ body,
 
   .hamburger-menu-container {
     display: none;
+  }
+
+  .page-title {
+    text-align: left;
+    padding-left: calc(1.5em);
   }
 
   .primary-nav-container {
