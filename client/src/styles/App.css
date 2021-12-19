@@ -11,6 +11,8 @@ body,
 }
 
 .App > div {
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
 }
 
@@ -49,6 +51,7 @@ body,
   padding: 10px 0;
   border-bottom: 1px solid black;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .primary-nav a:visited {
@@ -86,7 +89,52 @@ body,
   transform: translateY(6px);
 }
 
+.landing-page main {
+  margin: auto 0;
+  text-align: center;
+}
+
+.landing-page h1 {
+  margin: 0;
+  margin-bottom: 50px;
+  font-size: clamp(2rem, 1rem + 6vw, 6rem);
+}
+
+.landing-page h1 > span {
+  color: green;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 10px;
+}
+
+.landing-page button {
+  font-size: clamp(0.1rem, 0.5rem + 1vw, 2rem);
+  min-width: calc(10em + 1vw);
+  padding: 10px 0;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.landing-page a:nth-child(2) button {
+  background-color: green;
+  color: white;
+  border: none;
+}
+
+.landing-page a:nth-child(3) button {
+  background-color: transparent;
+  border: 1px solid green;
+}
+
 @media screen and (min-width: 600px) {
+  .landing-page h1 {
+    margin-bottom: 100px;
+  }
+
+  .landing-page button {
+    min-width: calc(14em + 1vw);
+  }
+
   .hamburger-menu-container {
     display: none;
   }

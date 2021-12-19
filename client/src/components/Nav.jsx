@@ -9,7 +9,7 @@ export default function Nav() {
     <div>
       <HamburgerMenu setToggle={setToggle}/>
      <div className={`primary-nav-container${!toggle ? ' hidden' : ''}`}
-    style={!toggle ? { pointerEvents: 'none' } : {}}
+    
     onClick={(e) => {
       if(e.target === e.currentTarget){
         setToggle(!toggle);
