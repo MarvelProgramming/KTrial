@@ -1,6 +1,7 @@
 @import 'globalAnimations.css';
 @import 'globalColors.css';
 @import 'globalEffects.css';
+@import 'global.css';
 
 html,
 body,
@@ -30,6 +31,11 @@ body,
   width: 100vw;
   height: 100vh;
   backdrop-filter: brightness(0.5) blur(5px);
+  /* 
+    For some reason, this is needed to stop checkboxes from rendering
+    above this element.
+  */
+  z-index: 1;
 }
 
 .primary-nav {
@@ -111,29 +117,11 @@ body,
   min-width: calc(10em + 1vw);
   padding: 10px 0;
   margin: 0 10px;
-  cursor: pointer;
-}
-
-.landing-page a:nth-child(2) button {
-  background-color: green;
-  color: white;
-  border: none;
-}
-
-.landing-page a:nth-child(3) button {
-  background-color: transparent;
-  border: 1px solid green;
 }
 
 .about-page main {
   display: flex;
   flex-direction: column;
-}
-
-.page-title {
-  color: green;
-  font-size: clamp(1rem, 3rem + 2vw, 10rem);
-  text-align: center;
 }
 
 .about-page p {
@@ -182,6 +170,56 @@ body,
   grid-column: 2 2;
 }
 
+.quiz-input-label {
+  margin-bottom: 10px;
+}
+
+.quiz-creation-page {
+  height: 100%;
+}
+
+.quiz-creation-page main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.quiz-creation-page form {
+  display: flex;
+  flex-direction: column;
+  margin: auto auto;
+  width: 60%;
+  max-width: 400px;
+}
+
+.quiz-creation-page form label {
+  font-size: clamp(1rem, 2.2rem + 1vw, 5em);
+}
+
+.quiz-creation-page label[for='make-public-checkbox'] {
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+.quiz-creation-page input[type='checkbox'] {
+  transform: scale(1.5);
+  margin-right: 1rem;
+}
+
+.quiz-creation-page input[id='quiz-name-input'] {
+  padding: 10px 0 10px 10px;
+  margin-bottom: 20px;
+}
+
+.quiz-creation-page textarea {
+  height: 100px;
+}
+
+.quiz-creation-page button {
+  height: 40px;
+  margin-top: 3rem;
+}
+
 @media screen and (min-width: 600px) {
   .landing-page h1 {
     margin-bottom: 100px;
@@ -193,11 +231,6 @@ body,
 
   .hamburger-menu-container {
     display: none;
-  }
-
-  .page-title {
-    text-align: left;
-    padding-left: calc(1.5em);
   }
 
   .primary-nav-container {
@@ -223,5 +256,12 @@ body,
 
   .primary-nav::after {
     display: none;
+  }
+
+  .quiz-creation-page button {
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(1rem + 40vw);
+    max-width: 200px;
   }
 }
