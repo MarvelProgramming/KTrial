@@ -1,6 +1,6 @@
 import React from "react";
-import Quiz_Start from "../components/Quiz_Start";
+import QuizCreation_Start from "../components/QuizCreation_Start";
 
 export default function QuizCreationPage () {
-  return <Quiz_Start />
+  return <QuizCreation_Start />
 };
