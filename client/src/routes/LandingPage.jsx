@@ -9,10 +9,10 @@ export default function LandingPage () {
         <h1>Welcome to <span>KTrial</span></h1>
         
         <Link to="/browse">
-          <button>Browse Quizzes</button>
+          <button className="filled-btn">Browse Quizzes</button>
         </Link>
         <Link to="/quiz/creation">
-          <button>Create a Quiz!</button>
+          <button className="hollow-btn">Create a Quiz!</button>
         </Link>
       </main>
     </div>

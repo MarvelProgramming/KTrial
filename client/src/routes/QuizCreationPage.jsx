@@ -1,10 +1,6 @@
 import React from "react";
-import Header from "../components/Header";
+import Quiz_Start from "../components/Quiz_Start";
 
 export default function QuizCreationPage () {
-  return (
-    <div className="quiz-creation-page">
-      <Header />
-    </div>
-  );
+  return <Quiz_Start />
 };
