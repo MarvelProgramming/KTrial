@@ -1,5 +1,5 @@
 import React from 'react'
-import QuizQuestion from './QuizQuestion'
+import Quiz_Question from './Quiz_Question'
 
 export default function QuizCreation_Questions() {
   return (
@@ -30,7 +30,7 @@ export default function QuizCreation_Questions() {
         <button className="filled-btn">Finish Quiz</button>
         <button>Delete Question</button>
       </div>
-      <QuizQuestion />
+      <Quiz_Question />
     </div>
   );
 };

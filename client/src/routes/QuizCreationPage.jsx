@@ -5,5 +5,5 @@ import QuizCreation_Review from '../components/QuizCreation_Review';
 import QuizCreation_Finished from "../components/QuizCreation_Finished";
 
 export default function QuizCreationPage () {
-  return <QuizCreation_Finished />
+  return <QuizCreation_Questions />
 };
