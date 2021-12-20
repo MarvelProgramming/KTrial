@@ -1,15 +1,11 @@
 import React from 'react'
 import Quiz_Question from './Quiz_Question'
 
-export default function QuizCreation_Questions() {
+export default function QuizCreation_Questions({ dispatch, state }) {
   return (
     <div className="quiz-creation-questions">
       <div className="quiz-creation-questions-config1">
         <button className="back-btn">back</button>
-        <br />
-        <form onSubmit={(e) => {
-          e.preventDefault();
-        }}>
           <label htmlFor="quiz-question-text-input">Question</label>
           <input id="quiz-question-text-input" placeholder="Enter question here" />
           <label htmlFor="quiz-question-description-input">Description <span>(optional)</span></label>
@@ -23,11 +19,12 @@ export default function QuizCreation_Questions() {
           <label htmlFor="quiz-question-answers-input">Answers</label>
           <br />
           <input id="quiz-question-answers-input" placeholder="Add answer" />
-        </form>
       </div>
       <div className="quiz-creation-questions-config2">
         <button className="hollow-btn">Add Question</button>
-        <button className="filled-btn">Finish Quiz</button>
+        <button className="filled-btn" onClick={() => {
+          dispatch({ type: 'progress_stage' });
+        }}>Finish Quiz</button>
         <button>Delete Question</button>
       </div>
       <Quiz_Question />

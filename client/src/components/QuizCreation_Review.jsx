@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function QuizCreation_Review() {
+export default function QuizCreation_Review({ dispatch }) {
   return (
     <div className="quiz-creation-review">
       <div>
@@ -10,7 +10,9 @@ export default function QuizCreation_Review() {
         <p>Questions: 1</p>
         <p>Is Public: true</p>
         <button className="hollow-btn">Back</button>
-        <button className="filled-btn">Done</button>
+        <button className="filled-btn" onClick={() => {
+          dispatch({ type: 'progress_stage' });
+        }}>Done</button>
       </div>
     </div>
   )

@@ -192,7 +192,7 @@ body,
   max-width: 250px;
 }
 
-.quiz-creation-start form label {
+.quiz-creation-start label {
   font-size: clamp(1rem, 2.2rem + 1vw, 5em);
 }
 
@@ -262,7 +262,7 @@ body,
 
 .quiz-creation-questions-config1 {
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 100px;
   grid-column-start: 1;
   grid-row-start: 1;
   width: calc(15rem + 10vw);
