@@ -314,6 +314,17 @@ body,
   margin-bottom: 30px;
 }
 
+.quiz-creation-review {
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-creation-review button {
+  margin-top: 30px;
+  padding: 5px 20px;
+  margin-right: 10px;
+}
+
 @media screen and (min-width: 600px) {
   .landing-page h1 {
     margin-bottom: 100px;
