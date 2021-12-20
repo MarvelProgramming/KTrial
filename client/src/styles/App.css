@@ -325,6 +325,16 @@ body,
   margin-right: 10px;
 }
 
+.quiz-creation-finished {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.quiz-creation-finished button {
+  padding: 10px 60px;
+}
+
 @media screen and (min-width: 600px) {
   .landing-page h1 {
     margin-bottom: 100px;
