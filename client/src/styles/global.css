@@ -21,6 +21,12 @@ button {
   color: green;
 }
 
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
 @media screen and (min-width: 600px) {
   .page-title {
     text-align: left;
