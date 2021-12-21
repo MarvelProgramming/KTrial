@@ -9,8 +9,8 @@ export default function QuizCreationPage () {
     stage: 0,
     quiz: {
       name: 'Default Quiz',
-      description: 'This the default quiz',
-      imageUrl: '',
+      description: 'This is the default quiz',
+      imageUrl: 'nothing',
       questions: [],
       category: 'general',
       isPublic: false,

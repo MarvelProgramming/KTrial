@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function QuizShareLink() {
+export default function QuizShareLink({ shareLink }) {
   
   return (
     <div className="quiz-share-link">
-      <a href="#">http://domain.com/quizzes/qnffiueirt134sdh</a>
+      <a href={shareLink}>{`${window.location.origin}/quiz/${shareLink}`}</a>
       <p>Share this link with your friends!</p>
     </div>
   );
