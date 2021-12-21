@@ -1,4 +1,4 @@
-const { Quiz } = require('../models');
+const { Quiz, QuizQuestion } = require('../models');
 
 const getRangeOfQuizzes = async (req, res) => {
   console.log(
@@ -10,8 +10,12 @@ const getRangeOfQuizzes = async (req, res) => {
 };
 
 const createQuiz = async (req, res) => {
-  const result = await Quiz.insertMany(req.body);
-  res.status(201).send(`Inserted ${result}`);
+  const questionResult = await QuizQuestion.insertMany(req.body.questions);
+  const quizResult = await Quiz.insertMany({
+    ...req.body,
+    questions: questionResult
+  });
+  res.status(201).send(quizResult);
 };
 
 const addQuestion = async (req, res) => {

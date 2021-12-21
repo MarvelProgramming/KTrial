@@ -1,16 +1,26 @@
 import React from 'react'
 import QuizQuestionChoice from './QuizQuestionChoice'
 
-export default function QuizQuestion() {
+export default function QuizQuestion({ question }) {
+  const getInputType = () => {
+    switch(question.type.toLowerCase()) {
+      case 'multiple choice':
+        return 'checkbox';
+      default:
+      case 'single choice':
+        return 'radio';
+    }
+  }
+  
   return (
     <div className="quiz-question">
       <progress max="100" value="80"/>
-      <h1>What color is the sky?</h1>
-      <p>Description text would go here, but is completely optional</p>
+      <h1>{question.question || 'No question set!'}</h1>
+      <p>{question.description || 'No description set'}</p>
       <p>Choose an answer:</p>
-      <QuizQuestionChoice choice="Blue" id="1" type={'radio'} />
-      <QuizQuestionChoice choice="Yellow" id="2" type={'radio'} />
-      <QuizQuestionChoice choice="Green" id="3" type={'radio'} />
+      {question.choices.map((choice, index) => (
+        <QuizQuestionChoice key={index} choice={choice} id={index} type={getInputType()} />
+      ))}
       <button className="filled-btn">Next Question</button>
     </div>
   )
