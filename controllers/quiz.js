@@ -18,6 +18,39 @@ const createQuiz = async (req, res) => {
   res.status(201).send(quizResult);
 };
 
+const getQuizById = async (req, res) => {
+  const quiz = await Quiz.findOne({ _id: req.params.id }).populate('questions');
+
+  quiz.questions.forEach((question) => {
+    question.choices = question.choices.map((choice) => {
+      return { choice: choice.choice };
+    });
+  });
+
+  res.status(200).send(quiz);
+};
+
+const gradeQuiz = async (req, res) => {
+  let quiz = await Quiz.findOne({ _id: req.params.id }).populate('questions');
+  let questions = quiz.questions;
+  let userQuestions = req.body;
+
+  let correctAnswers = questions.filter((question, questionIndex) => {
+    return !question.choices.some(
+      (choice, choiceIndex) =>
+        choice.isCorrect !==
+        userQuestions[questionIndex].choices[choiceIndex].checked
+    );
+  }).length;
+
+  res.status(200).json(correctAnswers);
+};
+
+const getQuestionById = async (req, res) => {
+  const question = await QuizQuestion.findOne({ _id: req.query.id });
+  res.status(200).send(question);
+};
+
 const addQuestion = async (req, res) => {
   const result = await Quiz.insertMany(req.body);
   res.status(201).send(`Inserted ${result}`);
@@ -26,5 +59,8 @@ const addQuestion = async (req, res) => {
 module.exports = {
   getRangeOfQuizzes,
   createQuiz,
+  getQuizById,
+  gradeQuiz,
+  getQuestionById,
   addQuestion
 };

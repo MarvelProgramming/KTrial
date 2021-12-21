@@ -29,8 +29,6 @@ export default function QuizCreationPage () {
       case 'regress_stage':
         return { ...state, stage: state.stage - 1};
       case 'update_quiz':
-        console.log('Before', state);
-        console.log('After', { ...state, quiz: { ...state.quiz, ...action.update } });
         return { ...state, quiz: { ...state.quiz, ...action.update } };
       default:
         return state;

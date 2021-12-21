@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Quiz_Question from './Quiz_Question'
 import QuizCreation_QuestionChoiceInput from './QuizCreation_QuestionChoiceInput';
-import { set } from 'mongoose';
 
 export default function QuizCreation_Questions({ dispatch, state }) {
   const defaultQuestion = {
@@ -37,7 +36,6 @@ export default function QuizCreation_Questions({ dispatch, state }) {
   }
 
   const addNewQuestion = () => {
-    console.log({ questions: [...state.quiz.questions, defaultQuestion] });
     dispatch({ type: 'update_quiz', update: { questions: [...state.quiz.questions, defaultQuestion] } });
     setQuestion(defaultQuestion);
   }
