@@ -1,12 +1,18 @@
+const mongoose = require('mongoose');
 const { Quiz, QuizQuestion } = require('../models');
 
 const getRangeOfQuizzes = async (req, res) => {
-  console.log(
-    `starting from ${req.query.startingPoint} with a range of ${req.query.range}`
-  );
-  res.send(
-    `starting from ${req.query.startingPoint} with a range of ${req.query.range}`
-  );
+  let from =
+    parseInt(req.query.from) === 0
+      ? (await Quiz.findOne({}, { _id: 1 }))._id
+      : mongoose.Types.ObjectId(req.query.from);
+  let range = parseInt(req.query.range);
+
+  let quizzes = await Quiz.find({
+    _id: { $gte: from }
+  }).limit(range);
+
+  res.send({ from, quizzes });
 };
 
 const createQuiz = async (req, res) => {

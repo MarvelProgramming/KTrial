@@ -23,7 +23,7 @@ export default function QuizQuestion({ dispatch, question, questionIndex, questi
 
             dispatch({ type: 'set_question_choices', choices: newChoices });
           }}>
-            <progress max="100" value={(questionIndex + 1) / (questionCount) * 100}/>
+            <progress max="100" value={((questionIndex + 1) / (questionCount) * 100) || 0}/>
             <h1>{question.question}</h1>
             <p>{question.description}</p>
             <p>Choose an answer:</p>
