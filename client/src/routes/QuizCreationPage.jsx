@@ -29,8 +29,8 @@ export default function QuizCreationPage () {
       case 'regress_stage':
         return { ...state, stage: state.stage - 1};
       case 'update_quiz':
-        console.log(`Updated quiz!`);
-        console.log({ ...state, quiz: { ...state.quiz, ...action.update } });
+        console.log('Before', state);
+        console.log('After', { ...state, quiz: { ...state.quiz, ...action.update } });
         return { ...state, quiz: { ...state.quiz, ...action.update } };
       default:
         return state;
@@ -44,12 +44,12 @@ export default function QuizCreationPage () {
       case 1:
         return <QuizCreation_Questions dispatch={dispatch} state={state} />
       case 2:
-        return <QuizCreation_Review dispatch={dispatch} state={state} />
+        return <QuizCreation_Review dispatch={dispatch} quiz={state.quiz} />
       case 3:
-        return <QuizCreation_Finished dispatch={dispatch} state={state} />
+        return <QuizCreation_Finished dispatch={dispatch} quiz={state.quiz} />
       default:
       case 0:
-        return <QuizCreation_Start dispatch={dispatch} />
+        return <QuizCreation_Start dispatch={dispatch} quiz={state.quiz} />
     }
   }
   

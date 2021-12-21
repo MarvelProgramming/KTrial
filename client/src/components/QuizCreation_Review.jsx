@@ -1,15 +1,17 @@
 import React from 'react'
 
-export default function QuizCreation_Review({ dispatch }) {
+export default function QuizCreation_Review({ dispatch, quiz }) {
   return (
     <div className="quiz-creation-review">
       <div>
         <h1>Review</h1>
-        <p>Quiz Name: YourQuizName</p>
-        <p>Description: The description for your quiz.</p>
-        <p>Questions: 1</p>
-        <p>Is Public: true</p>
-        <button className="hollow-btn">Back</button>
+        <p>Quiz Name: {quiz.name}</p>
+        <p>Description: {quiz.description}</p>
+        <p>Questions: {quiz.questions.length}</p>
+        <p>Is Public: {quiz.isPublic.toString()}</p>
+        <button className="hollow-btn" onClick={() => {
+          dispatch({ type: 'regress_stage' });
+        }}>Back</button>
         <button className="filled-btn" onClick={() => {
           dispatch({ type: 'progress_stage' });
         }}>Done</button>

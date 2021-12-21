@@ -226,6 +226,15 @@ body,
   gap: 30px;
 }
 
+.quiz-question-choice-input {
+  display: flex;
+}
+
+.quiz-question-choice-input input[type='checkbox'] {
+  flex-shrink: 10;
+  transform: scale(1.5);
+}
+
 .quiz-creation-questions button {
   display: block;
   padding: 10px 0;

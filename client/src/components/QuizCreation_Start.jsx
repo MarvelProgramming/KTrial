@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './Header';
 
-export default function QuizCreation_Start({ dispatch }) {
+export default function QuizCreation_Start({ dispatch, quiz }) {
   return (
     <div className="quiz-creation-start">
       <Header />
@@ -15,18 +15,18 @@ export default function QuizCreation_Start({ dispatch }) {
           Name
           <br/>
           </label>
-          <input id="quiz-name-input" placeholder="Enter your quiz name here" required onChange={(e) => {
+          <input id="quiz-name-input" placeholder="Enter your quiz name here" value={quiz.name} required onChange={(e) => {
             dispatch({ type: 'update_quiz', update: { name: e.target.value } });
           }} />
           <label className="quiz-input-label" htmlFor="quiz-description-textarea">
             Description
             <br/>
             </label>
-            <textarea id="quiz-description-textarea" placeholder="Enter your quiz description here" required onChange={(e) => {
+            <textarea id="quiz-description-textarea" value={quiz.description} placeholder="Enter your quiz description here" required onChange={(e) => {
               dispatch({ type: 'update_quiz', update: { description: e.target.value } });
             }} />
           <label htmlFor="make-public-checkbox">
-          <input id="make-public-checkbox" type="checkbox" name="make-public-checkbox" value="false" onChange={(e) => {
+          <input id="make-public-checkbox" type="checkbox" name="make-public-checkbox" checked={quiz.isPublic} onChange={(e) => {
             dispatch({ type: 'update_quiz', update: { isPublic: e.target.checked } });
           }} />
           Make Public
