@@ -1,16 +1,12 @@
-const mongoose = require('mongoose');
 const { Quiz, QuizQuestion } = require('../models');
 
 const getRangeOfQuizzes = async (req, res) => {
-  let from =
-    parseInt(req.query.from) === 0
-      ? (await Quiz.findOne({}, { _id: 1 }))._id
-      : mongoose.Types.ObjectId(req.query.from);
+  let from = parseInt(req.query.from);
   let range = parseInt(req.query.range);
 
-  let quizzes = await Quiz.find({
-    _id: { $gte: from }
-  }).limit(range);
+  let quizzes = await Quiz.find({ isPublic: req.query.public })
+    .skip(from)
+    .limit(range);
 
   res.send({ from, quizzes });
 };

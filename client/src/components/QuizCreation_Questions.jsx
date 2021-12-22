@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Quiz_Question from './Quiz_Question'
 import QuizCreation_QuestionChoiceInput from './QuizCreation_QuestionChoiceInput';
 
-export default function QuizCreation_Questions({ dispatch, state }) {
+export default function QuizCreation_Questions({ dispatch, state, props }) {
   const defaultQuestion = {
     question: '',
     description: '',
@@ -34,7 +34,7 @@ export default function QuizCreation_Questions({ dispatch, state }) {
     choices[index][property] = value;
     updateCurrentQuestion('choices', choices);
   }
-
+  
   const addNewQuestion = () => {
     dispatch({ type: 'update_quiz', update: { questions: [...state.quiz.questions, defaultQuestion] } });
     setQuestion(defaultQuestion);
@@ -57,6 +57,10 @@ export default function QuizCreation_Questions({ dispatch, state }) {
     dispatch({ type: 'update_quiz', update: { questions: questions } });
   }
 
+  const isFormValid = () => {
+    return question.question && question.choices.some(choice => choice.isCorrect) && question.choices.reduce((acc, choice) => { return acc + (choice.choice ? 1 : 0) }, 0) >= 2;
+  }
+
   const [question, setQuestion] = useState(defaultQuestion);
 
   useEffect(() => {
@@ -66,7 +70,12 @@ export default function QuizCreation_Questions({ dispatch, state }) {
   return (
     <div className="quiz-creation-questions">
       <div className="quiz-creation-questions-config1">
-        <button className="back-btn">back</button>
+        <button className="back-btn" onClick={() => {
+          window.location.reload();
+        }}>cancel</button>
+        <form id="question-form" onSubmit={(e)=>{
+          e.preventDefault();
+        }}>
           <label htmlFor="quiz-question-text-input">Question</label>
           <input id="quiz-question-text-input" placeholder="Enter question here" value={question.question} required onChange={(e) => {
             updateCurrentQuestion('question', e.target.value);
@@ -91,19 +100,27 @@ export default function QuizCreation_Questions({ dispatch, state }) {
             <QuizCreation_QuestionChoiceInput key="2" choice={question.choices[2]} index="2" handleQuestionChoiceInput={handleQuestionChoiceInput} />,
             <QuizCreation_QuestionChoiceInput key="3" choice={question.choices[3]} index="3" handleQuestionChoiceInput={handleQuestionChoiceInput} />,
           ]}
+        </form>
       </div>
       <div className="quiz-creation-questions-config2">
-        <button className="hollow-btn" onClick={() => {
+        <button type="submit" form="question-form" className="hollow-btn" onClick={() => {
+          if(!isFormValid()) {
+            return;
+          }
+          
           addNewQuestion();
         }}>Add Question</button>
-        <button className="filled-btn" onClick={() => {
+        <button type="submit" form="question-form" className="filled-btn" onClick={() => {
+          if(!isFormValid()) {
+            return;
+          }
           dispatch({ type: 'progress_stage' });
         }}>Finish Quiz</button>
         <button onClick={() => {
           removeCurrentQuestion();
         }}>Delete Question</button>
       </div>
-      <Quiz_Question question={question} />
+      <Quiz_Question question={question} isDisabled={true} />
     </div>
   );
 };

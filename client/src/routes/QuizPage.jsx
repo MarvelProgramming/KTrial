@@ -10,8 +10,7 @@ export default function QuizPage(props) {
   const iState = {
     quiz: null,
     currentQuestion: 0,
-    stage: 0,
-    questionIndex: 0
+    stage: 0
   }
 
   const reducer = (state, action) => {
@@ -51,7 +50,7 @@ export default function QuizPage(props) {
       case 0:
         return <Quiz_Start dispatch={dispatch} quiz={state.quiz} />;
       case 1:
-        return <Quiz_Question dispatch={dispatch} question={state.quiz.questions[state.currentQuestion]} questionIndex={state.questionIndex} questionCount={state.quiz.questions.length} />;
+        return <Quiz_Question dispatch={dispatch} question={state.quiz.questions[state.currentQuestion]} questionIndex={state.currentQuestion} questionCount={state.quiz.questions.length} />;
       case 2:
         return <Quiz_Finished props={props} quiz={state.quiz} />
     }

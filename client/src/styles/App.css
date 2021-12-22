@@ -63,6 +63,10 @@ body,
   color: black;
 }
 
+a:-webkit-any-link {
+  color: black;
+}
+
 .primary-header i {
   font-size: 2rem;
 }
@@ -443,9 +447,50 @@ body,
 }
 
 .quiz-list-item {
+  position: relative;
   border: 1px solid black;
   width: 15rem;
-  height: 100px;
+  height: 200px;
+  padding: 10px;
+}
+
+.quiz-list-item h2 {
+  font-size: clamp(1rem, 1rem + 1vw, 2rem);
+  margin: 0;
+}
+
+.quiz-list-item button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.login-icon {
+  cursor: pointer;
+}
+
+.user-login-page main {
+  margin: auto auto;
+  text-align: center;
+}
+
+.user-login-page input {
+  display: block;
+  padding: 10px 0 10px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.user-login-page button {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  padding: 10px 0;
+  width: 10em;
+  margin-top: 5em;
+}
+
+.user-login-page label {
+  font-size: clamp(1rem, 2.2rem + 1vw, 5em);
 }
 
 @media screen and (min-width: 600px) {
@@ -480,6 +525,16 @@ body,
   .primary-nav a {
     border-bottom: none;
     margin-right: 20px;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 1px;
+    transition: text-decoration-color 0.2s, text-underline-offset 1s;
+  }
+
+  .primary-nav a.active-link {
+    color: green;
+    text-decoration-color: green;
+    text-underline-offset: 3px;
   }
 
   .primary-nav::after {
@@ -505,5 +560,13 @@ body,
     border-right: 1px solid black;
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .user-login-page main {
+    text-align: left;
+  }
+
+  .user-login-page input {
+    margin: 0;
   }
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import QuizQuestionChoice from './QuizQuestionChoice'
 
-export default function QuizQuestion({ dispatch, question, questionIndex, questionCount }) {
+export default function QuizQuestion({ dispatch, question, questionIndex, questionCount, isDisabled }) {
   const getInputType = () => {
     switch(question.type.toLowerCase()) {
       case 'multiple choice':
@@ -11,7 +11,7 @@ export default function QuizQuestion({ dispatch, question, questionIndex, questi
         return 'radio';
     };
   };
-
+  
   return (
     <div className="quiz-question">
       {
@@ -28,7 +28,7 @@ export default function QuizQuestion({ dispatch, question, questionIndex, questi
             <p>{question.description}</p>
             <p>Choose an answer:</p>
             {question.choices.map((choice, index) => (
-              <QuizQuestionChoice key={index} choice={choice} index={index} type={getInputType()} dispatch={dispatch} />
+              <QuizQuestionChoice key={index} choice={choice} index={index} type={getInputType()} dispatch={dispatch} isDisabled={isDisabled} />
             ))}
             <button className="filled-btn" onClick={() => {
               dispatch({ type: 'goto_next_question' });
