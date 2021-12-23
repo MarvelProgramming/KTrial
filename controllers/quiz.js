@@ -18,7 +18,6 @@ const getRangeOfQuizzes = async (req, res) => {
         username === process.env.ADMIN_USER)
     ) {
       quiz.isAuthor = true;
-      break;
     }
   }
 
