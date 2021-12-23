@@ -1,10 +1,10 @@
 import React from 'react'
 import Header from './Header';
 
-export default function QuizCreation_Start({ dispatch, quiz }) {
+export default function QuizCreation_Start({ dispatch, quiz, props }) {
   return (
     <div className="quiz-creation-start">
-      <Header />
+      <Header props={props} />
       <main>
         <h1 className="page-title">Create Quiz</h1>
         <form onSubmit={(e) => {

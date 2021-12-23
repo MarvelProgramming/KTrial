@@ -17,7 +17,7 @@ export default function Quiz_Finished({ props, quiz }) {
   return (
     <div className="quiz-finished">
       <h1>Results</h1>
-      <p>You scored {(correctAnswers / quiz.questions.length * 100).toFixed(0)}%!</p>
+      <p>You scored {(correctAnswers / quiz.questions.length * 100).toFixed(0)}%</p>
       <button className="hollow-btn" onClick={() => {
         window.location.reload();
       }}>Try Again</button>

@@ -21,7 +21,8 @@ body,
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  /* border-bottom: 2px solid rgba(0, 0, 0, 0.3); */
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
 }
 
 .primary-nav-container {
@@ -534,6 +535,23 @@ a:-webkit-any-link {
   font-size: clamp(1rem, 2.2rem + 1vw, 5em);
 }
 
+.user-logged-in {
+  border: 1px solid green;
+  border-radius: 50%;
+}
+
+.user-logged-in::after {
+  content: '';
+  position: absolute;
+  top: 0.8rem;
+  right: 3.3rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background-color: green;
+  border: 1px solid black;
+}
+
 .quiz-ratings-container {
   display: flex;
   justify-content: space-between;
@@ -596,7 +614,11 @@ a:-webkit-any-link {
     text-decoration-color: transparent;
     font-size: 1.3rem;
     text-underline-offset: 1px;
-    transition: text-decoration-color 0.2s, text-underline-offset 1s;
+    transition: text-decoration-color 0.2s, text-underline-offset 1s, color 0.2s;
+  }
+
+  .primary-nav a:hover {
+    color: green;
   }
 
   .primary-nav a.active-link {
@@ -625,9 +647,17 @@ a:-webkit-any-link {
   .quiz-creation-questions-config1,
   .quiz-creation-questions-config2 {
     width: 100%;
-    border-right: 1px solid black;
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .quiz-creation-questions-config-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    width: 210px;
+    height: 100%;
   }
 
   .user-login-page main {

@@ -60,8 +60,14 @@ function App() {
           path="/quiz/creation"
           component={(props) => <QuizCreationPage {...props} {...userLogin} />}
         />
-        <Route path="/quiz/:id" component={QuizPage} />
-        <Route path="/about" component={AboutPage} />
+        <Route
+          path="/quiz/:id"
+          component={(props) => <QuizPage {...props} {...userLogin} />}
+        />
+        <Route
+          path="/about"
+          component={(props) => <AboutPage {...props} {...userLogin} />}
+        />
         <Route
           path="/login"
           component={(props) => (

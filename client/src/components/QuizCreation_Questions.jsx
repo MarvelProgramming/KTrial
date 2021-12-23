@@ -69,6 +69,7 @@ export default function QuizCreation_Questions({ dispatch, state, props }) {
 
   return (
     <div className="quiz-creation-questions">
+      <div className="quiz-creation-questions-config-shadow"></div>
       <div className="quiz-creation-questions-config1">
         <button className="back-btn" onClick={() => {
           window.location.reload();

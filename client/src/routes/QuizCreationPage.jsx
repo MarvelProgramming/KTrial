@@ -49,7 +49,7 @@ export default function QuizCreationPage (props) {
         return <QuizCreation_Finished dispatch={dispatch} quiz={state.quiz} props={props} />
       default:
       case 0:
-        return <QuizCreation_Start dispatch={dispatch} quiz={state.quiz} />
+        return <QuizCreation_Start dispatch={dispatch} quiz={state.quiz} props={props} />
     }
   }
   
