@@ -7,22 +7,11 @@ export default function AboutPage(props) {
       <Header props={props} />
       <main>
         <h1 className="page-title">About</h1>
-        <p><span>Opus igitur est</span> dicere possit dura omni specie, “Tu autem in specie, non videntur, nec omnino res est.” Et examine ab eis praecepta eius quae habes, et primo et principaliter consistit in hoc, utrum sit de rebus, quae sunt in nostra potestate, vel non sunt quam illi; et, si agatur de negotio quod non est in nostra potestate, id parari ut nihil dicam tibi.
-
-
-Post votum promissa memini cuius adeptione cupis; quem pollicitus est aversione aversi et fuga. Qui autem de re desit libido frustra miseri qui incurrit odium sui obiecti.
-
-
-Si ergo illa tantum fastidium compesce contra naturalem usum habili, quem habetis vestra
-</p>
-        <p><span>Si osculantur puer</span> tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur.
-
-
-Quando ambulabat agendis admonere te qualis actio. Si ad corpus, quae plerumque Imaginare tecum in balineo quidam aquam fundes aliquod discrimen vituperiis usum alii furantur.
-
-
-Sic de isto et tutius perducit ad actum ipsum, ut si dico “Ego autem vadam lavari, ut mens mea in statu naturae conformior.” Et similiter circa alias res. Et sic, si contingit ex per se lavantem, et erit hoc paratus ut diceret, “Hoc non solum lavari ut desideravit, sed ut animus in statu naturae
-</p>
+        <p><span>KTrials</span> was built with the purpose of enabling users to create, share, and take a variety of quizzes.
+        Quizzes can range from common sense topics, entertainment, technology -- really, anything your mind can come up with. The quiz creation
+        page walks you through the process of creating a quiz from scratch, and is capable of making single choice or multiple choice questions.</p>
+        <p><span>This site is continuously being interated</span> upon and changes should be expected. Details about future updates can be found
+        on the public github linked below (the icon). All of this was originally made as part of a project for General Assembly!</p>
       </main>
       <div>
         <div>
