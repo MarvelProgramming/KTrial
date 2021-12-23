@@ -43,10 +43,7 @@ const deleteQuiz = async (req, res) => {
   }
 
   res.status(200).send({
-    username: username,
-    otheruser: process?.env?.ADMIN_USER,
-    aretrue: username === otheruser,
-    quizid: req.params.id
+    otheruser: process?.env?.ADMIN_USER
   });
 };
 
