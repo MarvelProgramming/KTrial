@@ -54,7 +54,7 @@ const getQuizById = async (req, res) => {
     });
   });
 
-  res.status(200).send(quiz);
+  return res.status(200).send(quiz);
 };
 
 const rateQuizById = async (req, res) => {
