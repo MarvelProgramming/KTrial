@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import QuizShareLink from './QuizShareLink'
 import axios from 'axios';
+import { BASE_URL } from '../globals'
 
-export default function QuizCreation_Finished({ dispatch, quiz, props }) {
+export default function QuizCreation_Finished({ quiz, props }) {
   const [shareLink, setShareLink] = useState('');
 
   useEffect(() => {
@@ -11,7 +12,7 @@ export default function QuizCreation_Finished({ dispatch, quiz, props }) {
         question.choices = question.choices.filter(choice => choice.choice);
       });
       
-      let result = await axios.post('http://localhost:3001/quiz', quiz);
+      let result = await axios.post(`${BASE_URL}/quiz`, quiz);
       setShareLink(result.data[0]._id);
     }
     uploadQuiz();

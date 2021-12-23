@@ -4,6 +4,7 @@ import Quiz_Question from '../components/Quiz_Question';
 import Quiz_Finished from '../components/Quiz_Finished';
 import Header from '../components/Header';
 import axios from 'axios';
+import { BASE_URL } from '../globals';
 
 export default function QuizPage(props) {
   let quizId = props.match.params.id;
@@ -47,7 +48,7 @@ export default function QuizPage(props) {
 
   useEffect(() => {
     const getQuizById = async () => {
-      let result = await axios.get(`${window.location.protocol}//${window.location.hostname}:3001/quiz/${quizId}`);
+      let result = await axios.get(`${BASE_URL}/quiz/${quizId}`);
       dispatch({ type: 'set_quiz', quiz: result.data });
     };
 
