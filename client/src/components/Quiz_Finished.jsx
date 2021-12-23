@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import { BASE_URL } from '../globals';
 
 export default function Quiz_Finished({ props, quiz }) {
 
@@ -7,7 +8,7 @@ export default function Quiz_Finished({ props, quiz }) {
   
   useEffect(() => {
     const getResults = async () => {
-      let result = await axios.post(`${window.location.protocol}//${window.location.hostname}:3001/quiz/${quiz._id}/grade`, quiz.questions);
+      let result = await axios.post(`${BASE_URL}/quiz/${quiz._id}/grade`, quiz.questions);
       setCorrectAnswers(result.data);
     }
     getResults();

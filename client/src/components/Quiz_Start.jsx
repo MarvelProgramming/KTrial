@@ -1,7 +1,6 @@
 import React from 'react'
 import QuizShareLink from './QuizShareLink';
 import { Link } from 'react-router-dom';
-import Header from './Header'
 
 export default function Quiz_Start({ dispatch, quiz }) {
   return (

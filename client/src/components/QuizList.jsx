@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import QuizListItem from './QuizListItem';
+import { BASE_URL } from '../globals';
 
 export default function QuizList(props) {
   const [from, setFrom] = useState(0);
@@ -8,12 +9,12 @@ export default function QuizList(props) {
 
   const updateQuiz = (index, update) => {
     let newQuizzes = [...quizzes];
-    newQuizzes[index] = update;
+    newQuizzes[index] = {...newQuizzes[index], ...update};
     setQuizzes(newQuizzes);
   }
   
   const deleteQuiz = async (index) => {
-    let result = await axios.delete(`${window.location.protocol}//${window.location.hostname}:3001/quiz/${quizzes[index]._id}?username=${props.username}`);
+    let result = await axios.delete(`${BASE_URL}/quiz/${quizzes[index]._id}?username=${props.username}`);
     
     if(result.data) {
       let newQuizzes = [...quizzes];
@@ -23,7 +24,7 @@ export default function QuizList(props) {
   }
 
   const getQuizzes = async () => {
-    let results = await axios.get(`${window.location.protocol}//${window.location.hostname}:3001/quiz/range?from=${from || 0}&range=${5}&public=true&username=${props.username}`);
+    let results = await axios.get(`${BASE_URL}/quiz/range?from=${from || 0}&range=${5}&public=true&username=${props.username}`);
     return results.data;
   }
 

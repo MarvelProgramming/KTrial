@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import { BASE_URL } from '../globals';
 
 export default function QuizListItem({ props, quiz, quizIndex, updateQuiz, deleteQuiz }) {
 
@@ -10,7 +11,7 @@ export default function QuizListItem({ props, quiz, quizIndex, updateQuiz, delet
       return;
     }
 
-    let result = await axios.put(`${window.location.protocol}//${window.location.hostname}:3001/quiz/${quiz._id}?rating=${newRating}`);
+    let result = await axios.put(`${BASE_URL}/quiz/${quiz._id}?rating=${newRating}`);
     setRating(newRating);
     updateQuiz(quizIndex, result.data);
   }

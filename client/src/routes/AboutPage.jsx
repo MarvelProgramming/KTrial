@@ -26,8 +26,8 @@ Sic de isto et tutius perducit ad actum ipsum, ut si dico “Ego autem vadam lav
       </main>
       <div>
         <div>
-          <i className="fab fa-github"></i>
-          <i className="fab fa-linkedin"></i>
+          <a href="https://github.com/Menthus123/KTrial" target="_blank"><i className="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/marvel-johnson/" target="_blank"><i className="fab fa-linkedin"></i></a>
         </div>
       </div>
     </div>
