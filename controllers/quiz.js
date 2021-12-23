@@ -42,7 +42,9 @@ const deleteQuiz = async (req, res) => {
     result = await Quiz.deleteOne({ _id: req.params.id });
   }
 
-  res.status(200).send(!!result);
+  res.status(200).send({
+    username
+  });
 };
 
 const getQuizById = async (req, res) => {
