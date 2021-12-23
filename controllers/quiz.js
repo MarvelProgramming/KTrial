@@ -36,10 +36,10 @@ const createQuiz = async (req, res) => {
 const deleteQuiz = async (req, res) => {
   let quiz = await Quiz.find({ _id: req.params.id });
   let username = req.query.username;
-  let result = false;
+  let result;
+
   if (username === quiz.author || username === process.env.ADMIN_USER) {
-    await Quiz.deleteOne({ _id: req.params.id });
-    result = true;
+    result = await Quiz.deleteOne({ _id: req.params.id });
   }
 
   res.status(200).send(result);
