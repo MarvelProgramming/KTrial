@@ -9,6 +9,7 @@ export default function QuizCreationPage (props) {
     stage: 0,
     quiz: {
       name: 'Default Quiz',
+      author: props.username,
       description: '',
       imageUrl: 'nothing',
       questions: [],
@@ -18,6 +19,7 @@ export default function QuizCreationPage (props) {
       userScores: [],
       userScoresSum: 0,
       userRatings: [],
+      userPositiveRatings: 0,
       userRatingsSum: 0
     }
   }

@@ -6,7 +6,7 @@ export default function BrowsePage(props) {
   return (
     <div className="browse-page">
       <Header props={props} />
-      <QuizList props={props} />
+      <QuizList props={props} username={props.username} />
     </div>
   );
 };

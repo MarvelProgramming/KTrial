@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from 'react'
 import Quiz_Start from '../components/Quiz_Start'
 import Quiz_Question from '../components/Quiz_Question';
 import Quiz_Finished from '../components/Quiz_Finished';
+import Header from '../components/Header';
 import axios from 'axios';
 
 export default function QuizPage(props) {
@@ -29,6 +30,14 @@ export default function QuizPage(props) {
         let quiz = state.quiz;
         quiz.questions[state.currentQuestion].choices = action.choices;
         return { ...state, quiz: quiz }
+      case 'reset_question_choices':
+        let quizQuestions = [...state.quiz.questions];
+        
+        for(let i = 0; i < quizQuestions[state.currentQuestion].choices.length; i++) {
+          quizQuestions[state.currentQuestion].choices[i].checked = false;
+        }
+        
+        return { ...state, quiz: { ...state.quiz, questions: quizQuestions } }
       default:
         return state;
     }
@@ -58,6 +67,7 @@ export default function QuizPage(props) {
 
   return (
   <div className="quiz-page">
+    <Header />
     {getCurrentPage()}
   </div>
   );

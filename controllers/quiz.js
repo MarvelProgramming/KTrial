@@ -1,14 +1,28 @@
 const { Quiz, QuizQuestion } = require('../models');
 
 const getRangeOfQuizzes = async (req, res) => {
+  let username = req.query.username;
   let from = parseInt(req.query.from);
   let range = parseInt(req.query.range);
 
   let quizzes = await Quiz.find({ isPublic: req.query.public })
     .skip(from)
-    .limit(range);
+    .limit(range)
+    .lean();
 
-  res.send({ from, quizzes });
+  for (let i = 0; i < quizzes.length; i++) {
+    let quiz = quizzes[i];
+    if (
+      username &&
+      ((quiz.author && username === quiz.author) ||
+        username === process.env.ADMIN_USER)
+    ) {
+      quiz.isAuthor = true;
+      break;
+    }
+  }
+
+  res.status(200).json(quizzes);
 };
 
 const createQuiz = async (req, res) => {
@@ -20,6 +34,18 @@ const createQuiz = async (req, res) => {
   res.status(201).send(quizResult);
 };
 
+const deleteQuiz = async (req, res) => {
+  let quiz = await Quiz.find({ _id: req.params.id });
+  let username = req.query.username;
+  let result = false;
+  if (username === quiz.author || username === process.env.ADMIN_USER) {
+    await Quiz.deleteOne({ _id: req.params.id });
+    result = true;
+  }
+
+  res.status(200).send(result);
+};
+
 const getQuizById = async (req, res) => {
   const quiz = await Quiz.findOne({ _id: req.params.id }).populate('questions');
 
@@ -29,6 +55,16 @@ const getQuizById = async (req, res) => {
     });
   });
 
+  res.status(200).send(quiz);
+};
+
+const rateQuizById = async (req, res) => {
+  const quiz = await Quiz.findOne({ _id: req.params.id });
+  const newUserRating = parseInt(req.query.rating);
+  quiz.userRatings.push(newUserRating);
+  quiz.userRatingsSum += newUserRating;
+  quiz.userPositiveRatings += newUserRating > 0 ? 1 : 0;
+  quiz.save();
   res.status(200).send(quiz);
 };
 
@@ -61,7 +97,9 @@ const addQuestion = async (req, res) => {
 module.exports = {
   getRangeOfQuizzes,
   createQuiz,
+  deleteQuiz,
   getQuizById,
+  rateQuizById,
   gradeQuiz,
   getQuestionById,
   addQuestion

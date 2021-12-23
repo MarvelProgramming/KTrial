@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import QuizQuestionChoice from './QuizQuestionChoice'
 
 export default function QuizQuestion({ dispatch, question, questionIndex, questionCount, isDisabled }) {
@@ -23,7 +23,7 @@ export default function QuizQuestion({ dispatch, question, questionIndex, questi
 
             dispatch({ type: 'set_question_choices', choices: newChoices });
           }}>
-            <progress max="100" value={((questionIndex + 1) / (questionCount) * 100) || 0}/>
+            <progress max="100" value={((questionIndex + 1) / (questionCount) * 100) || 0} />
             <h1>{question.question}</h1>
             <p>{question.description}</p>
             <p>Choose an answer:</p>
@@ -31,7 +31,13 @@ export default function QuizQuestion({ dispatch, question, questionIndex, questi
               <QuizQuestionChoice key={index} choice={choice} index={index} type={getInputType()} dispatch={dispatch} isDisabled={isDisabled} />
             ))}
             <button className="filled-btn" onClick={() => {
-              dispatch({ type: 'goto_next_question' });
+              if(question.choices.some(choice => choice.checked)) {
+                dispatch({ type: 'goto_next_question' });
+
+                if(questionIndex < questionCount - 1) {
+                  dispatch({ type: 'reset_question_choices' });
+                }
+              }
             }}>{ questionIndex < questionCount - 1 ? 'Next Question' : 'Finish Quiz'}</button>
           </div> : 
           <p>Grabbing question</p>

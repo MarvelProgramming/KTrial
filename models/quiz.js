@@ -3,6 +3,7 @@ const { Schema } = require('mongoose');
 const QuizSchema = new Schema(
   {
     name: { type: String, required: true },
+    author: { type: String, required: false },
     imageUrl: { type: String, required: true },
     description: { type: String, required: true },
     questions: [{ type: Schema.Types.ObjectId, ref: 'QuizQuestion' }],
@@ -11,6 +12,7 @@ const QuizSchema = new Schema(
     userScores: [{ type: Number, required: true }],
     userScoresSum: { type: Number, required: true },
     userRatings: [{ type: Number, required: true }],
+    userPositiveRatings: { type: Number, required: true },
     userRatingsSum: { type: Number }
   },
   { timestamps: true }

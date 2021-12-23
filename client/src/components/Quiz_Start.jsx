@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import QuizShareLink from './QuizShareLink';
 import { Link } from 'react-router-dom';
+import Header from './Header'
 
 export default function Quiz_Start({ dispatch, quiz }) {
   return (
@@ -9,7 +10,7 @@ export default function Quiz_Start({ dispatch, quiz }) {
         quiz ? 
         <div>
           <h1>{quiz.name}</h1>
-          <p>Description: {quiz.description}</p>
+          <p>Description: <br/>{quiz.description}</p>
           <p>Questions: {quiz.questions.length}</p>
           <Link to="/browse"><button className="hollow-btn">Browse Quizzes</button></Link>
           <button className="filled-btn" onClick={() => {

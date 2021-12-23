@@ -8,7 +8,6 @@ export default function Quiz_Finished({ props, quiz }) {
   useEffect(() => {
     const getResults = async () => {
       let result = await axios.post(`${window.location.protocol}//${window.location.hostname}:3001/quiz/${quiz._id}/grade`, quiz.questions);
-      console.log(result);
       setCorrectAnswers(result.data);
     }
     getResults();
@@ -16,8 +15,8 @@ export default function Quiz_Finished({ props, quiz }) {
   
   return (
     <div className="quiz-finished">
-      <h1>Finished!</h1>
-      <p>You answered {(correctAnswers / quiz.questions.length * 100).toFixed(0)}% correctly!</p>
+      <h1>Results</h1>
+      <p>You scored {(correctAnswers / quiz.questions.length * 100).toFixed(0)}%!</p>
       <button className="hollow-btn" onClick={() => {
         window.location.reload();
       }}>Try Again</button>

@@ -306,12 +306,20 @@ a:-webkit-any-link {
   grid-row-start: 1;
   grid-row-end: 3;
   margin: auto auto;
+  width: 100%;
+  overflow: hidden;
 }
 
 .quiz-creation-questions .quiz-question h1 {
   text-align: center;
-  margin: 0;
+  margin: 0 auto;
   margin-bottom: 10px;
+  width: 70%;
+  word-wrap: break-word;
+}
+
+.quiz-creation-questions .quiz-question > div {
+  width: 100%;
 }
 
 .quiz-creation-questions .quiz-question button,
@@ -335,6 +343,9 @@ a:-webkit-any-link {
 
 .quiz-question h1 {
   text-align: center;
+  font-size: clamp(2rem, 5vw - 1rem, 5rem);
+  width: 80%;
+  margin: 0 auto;
 }
 
 .quiz-question p {
@@ -360,6 +371,10 @@ a:-webkit-any-link {
   align-items: center;
 }
 
+.quiz-creation-review p:nth-child(3) {
+  width: 20rem;
+}
+
 .quiz-creation-review button {
   margin-top: 30px;
   padding: 5px 20px;
@@ -382,14 +397,19 @@ a:-webkit-any-link {
 
 .quiz-start {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   text-align: center;
+  flex-grow: 1;
   height: 100%;
 }
 
-.quiz-start div:first-child {
-  margin: auto auto;
+.quiz-start div:nth-child(1) {
+  margin: auto 0;
+}
+
+.quiz-start > div:nth-child(1) p:nth-child(2) {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .quiz-start h1 {
@@ -403,9 +423,10 @@ a:-webkit-any-link {
 .quiz-start .quiz-share-link {
   display: flex;
   flex-direction: column-reverse;
-  position: absolute;
-  bottom: 4rem;
+  position: relative;
+  bottom: 2rem;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .quiz-start button {
@@ -449,7 +470,7 @@ a:-webkit-any-link {
 .quiz-list-item {
   position: relative;
   border: 1px solid black;
-  width: 15rem;
+  width: 50%;
   height: 200px;
   padding: 10px;
 }
@@ -457,12 +478,27 @@ a:-webkit-any-link {
 .quiz-list-item h2 {
   font-size: clamp(1rem, 1rem + 1vw, 2rem);
   margin: 0;
+  color: green;
 }
 
-.quiz-list-item button {
+.quiz-list-item-config-area {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+}
+
+.quiz-list-item button:nth-child(2) {
+  background-color: transparent;
+  border: 1px solid red;
+  color: red;
+}
+
+.quiz-list-item-config-area button {
+  padding: 5px 5px;
 }
 
 .login-icon {
@@ -474,6 +510,10 @@ a:-webkit-any-link {
   text-align: center;
 }
 
+.user-login-page form {
+  margin-top: -20vh;
+}
+
 .user-login-page input {
   display: block;
   padding: 10px 0 10px 10px;
@@ -483,14 +523,41 @@ a:-webkit-any-link {
 }
 
 .user-login-page button {
+  display: block;
   font-size: clamp(1rem, 2vw, 1.5rem);
   padding: 10px 0;
-  width: 10em;
-  margin-top: 5em;
+  width: 100%;
+  margin-top: 1em;
 }
 
 .user-login-page label {
   font-size: clamp(1rem, 2.2rem + 1vw, 5em);
+}
+
+.quiz-ratings-container {
+  display: flex;
+  justify-content: space-between;
+  width: 4rem;
+  padding-left: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.quiz-rating {
+  cursor: pointer;
+}
+
+.quiz-rating.quiz-rating-chosen {
+  color: green;
+}
+
+.quiz-rating:nth-child(1) span {
+  margin-left: 0.2rem;
+  pointer-events: none;
+  cursor: none;
+}
+
+.quiz-rating:nth-child(2) {
+  transform: scale(-1);
 }
 
 @media screen and (min-width: 600px) {
@@ -527,6 +594,7 @@ a:-webkit-any-link {
     margin-right: 20px;
     text-decoration: underline;
     text-decoration-color: transparent;
+    font-size: 1.3rem;
     text-underline-offset: 1px;
     transition: text-decoration-color 0.2s, text-underline-offset 1s;
   }
@@ -550,7 +618,7 @@ a:-webkit-any-link {
 
   .App > .quiz-creation-questions {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: auto 1fr;
     gap: 0;
   }
 
