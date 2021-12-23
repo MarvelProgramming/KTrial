@@ -45,6 +45,11 @@ Travel to the About Page to find more info about KTrial and it's development.
 
 ### **_Screenshots_**
 
+<details open>
+<summary>Landing Page</summary>
+<img src="https://github.com/Menthus123/KTrial/blob/main/images/ktrials_landingpage.JPG?raw=true">
+</details>
+
 ---
 
 ### **_Future Updates_**
