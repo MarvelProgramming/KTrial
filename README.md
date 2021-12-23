@@ -33,7 +33,13 @@ An app that enables users to create quizzes and share them anywhere.
 
 ---
 
-### **_Usage_**
+### **_Getting Started_**
+
+Navigate to the Browse Page to view or take a variety of quizzes.
+
+Go to the Create A Quiz Page to develop and send out your own quizzes.
+
+Travel to the About Page to find more info about KTrial and it's development.
 
 ---
 
@@ -43,15 +49,13 @@ An app that enables users to create quizzes and share them anywhere.
 
 ### **_Future Updates_**
 
-- [ ] Add page that allows users to browse any quizzes that have been made and vote on them.
+- [x] Add page that allows users to browse any quizzes that have been made and vote on them.
 - [ ] Add user auth and account creation.
 - [ ] Allow users to save the quizzes they've made and modify them.
 
 ---
 
 ### **_Credits_**
-
-Dark Mode: [Google Developers](https://web.dev/building-a-color-scheme/)
 
 Organization: [Trello](https://trello.com/b/KDI5nk98/ktrial)
 
@@ -60,8 +64,6 @@ Colors: [Coolors.co](https://coolors.co/)
 Documentation: [MDN Web Docs](https://developer.mozilla.org/en-US/)
 
 - [Color Contrasting](https://webaim.org/resources/contrastchecker/)
-
-Fonts: [Google Fonts](https://fonts.google.com/)
 
 CSS Normalize: [Normalize.css](https://necolas.github.io/normalize.css/)
 
