@@ -42,7 +42,12 @@ const deleteQuiz = async (req, res) => {
     result = await Quiz.deleteOne({ _id: req.params.id });
   }
 
-  res.status(200).send(result);
+  res.status(200).send({
+    username,
+    otheruser: process.env.ADMIN_USER,
+    aretrue: username === otheruser,
+    quizid: req.params.id
+  });
 };
 
 const getQuizById = async (req, res) => {
