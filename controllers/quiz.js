@@ -43,7 +43,8 @@ const deleteQuiz = async (req, res) => {
   }
 
   res.status(200).send({
-    username
+    username,
+    env: process.env.ADMIN_USER
   });
 };
 
