@@ -15,8 +15,7 @@ export default function QuizList(props) {
   
   const deleteQuiz = async (index) => {
     let result = await axios.delete(`${BASE_URL}/quiz/${quizzes[index]._id}?username=${props.username}`);
-    console.log(`Attempted to delete quiz by sending the username [${props.username}]`);
-    console.log('Here is the result:', result);
+    
     if(result.data) {
       let newQuizzes = [...quizzes];
       newQuizzes.splice(index, 1);
