@@ -35,6 +35,8 @@ An app that enables users to create quizzes and share them anywhere.
 
 ### **_Getting Started_**
 
+Visit the webpage >>[Here](https://knowledgetrial.herokuapp.com/)<<
+
 Navigate to the Browse Page to view or take a variety of quizzes.
 
 Go to the Create A Quiz Page to develop and send out your own quizzes.
