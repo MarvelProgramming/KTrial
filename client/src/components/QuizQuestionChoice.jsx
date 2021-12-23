@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-export default function QuizQuestionChoice({ choice, type, id }) {
+export default function QuizQuestionChoice({ choice, type, index, dispatch, isDisabled }) {  
+
+  useEffect(() => {
+    dispatch?.({ type: 'set_question_choice', chosen: false, choiceIndex: index });
+  }, [])
+  
   return (
     <div className="quiz-question-choice">
-      <input id={id} type={type} name="question-choice" />
-      <label htmlFor={id}>{choice.choice}</label>
+      <input id={index} type={type} name="question-choice" checked={choice.checked || false} disabled={isDisabled || false} onChange={(e) => {
+        dispatch({ type: 'set_question_choice', chosen: e.target.checked, choiceIndex: index });
+      }} />
+      <label htmlFor={index}>{choice.choice}</label>
     </div>
   )
 }

@@ -63,6 +63,10 @@ body,
   color: black;
 }
 
+a:-webkit-any-link {
+  color: black;
+}
+
 .primary-header i {
   font-size: 2rem;
 }
@@ -302,12 +306,20 @@ body,
   grid-row-start: 1;
   grid-row-end: 3;
   margin: auto auto;
+  width: 100%;
+  overflow: hidden;
 }
 
 .quiz-creation-questions .quiz-question h1 {
   text-align: center;
-  margin: 0;
+  margin: 0 auto;
   margin-bottom: 10px;
+  width: 70%;
+  word-wrap: break-word;
+}
+
+.quiz-creation-questions .quiz-question > div {
+  width: 100%;
 }
 
 .quiz-creation-questions .quiz-question button,
@@ -331,6 +343,9 @@ body,
 
 .quiz-question h1 {
   text-align: center;
+  font-size: clamp(2rem, 5vw - 1rem, 5rem);
+  width: 80%;
+  margin: 0 auto;
 }
 
 .quiz-question p {
@@ -356,6 +371,10 @@ body,
   align-items: center;
 }
 
+.quiz-creation-review p:nth-child(3) {
+  width: 20rem;
+}
+
 .quiz-creation-review button {
   margin-top: 30px;
   padding: 5px 20px;
@@ -378,14 +397,19 @@ body,
 
 .quiz-start {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   text-align: center;
+  flex-grow: 1;
   height: 100%;
 }
 
-.quiz-start div:first-child {
-  margin: auto auto;
+.quiz-start div:nth-child(1) {
+  margin: auto 0;
+}
+
+.quiz-start > div:nth-child(1) p:nth-child(2) {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .quiz-start h1 {
@@ -399,9 +423,10 @@ body,
 .quiz-start .quiz-share-link {
   display: flex;
   flex-direction: column-reverse;
-  position: absolute;
-  bottom: 4rem;
+  position: relative;
+  bottom: 2rem;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .quiz-start button {
@@ -431,6 +456,108 @@ body,
   width: 10em;
   margin: 0 10px;
   margin-top: 5em;
+}
+
+.quiz-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.quiz-list-item {
+  position: relative;
+  border: 1px solid black;
+  width: 50%;
+  height: 200px;
+  padding: 10px;
+}
+
+.quiz-list-item h2 {
+  font-size: clamp(1rem, 1rem + 1vw, 2rem);
+  margin: 0;
+  color: green;
+}
+
+.quiz-list-item-config-area {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+}
+
+.quiz-list-item button:nth-child(2) {
+  background-color: transparent;
+  border: 1px solid red;
+  color: red;
+}
+
+.quiz-list-item-config-area button {
+  padding: 5px 5px;
+}
+
+.login-icon {
+  cursor: pointer;
+}
+
+.user-login-page main {
+  margin: auto auto;
+  text-align: center;
+}
+
+.user-login-page form {
+  margin-top: -20vh;
+}
+
+.user-login-page input {
+  display: block;
+  padding: 10px 0 10px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.user-login-page button {
+  display: block;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  padding: 10px 0;
+  width: 100%;
+  margin-top: 1em;
+}
+
+.user-login-page label {
+  font-size: clamp(1rem, 2.2rem + 1vw, 5em);
+}
+
+.quiz-ratings-container {
+  display: flex;
+  justify-content: space-between;
+  width: 4rem;
+  padding-left: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.quiz-rating {
+  cursor: pointer;
+}
+
+.quiz-rating.quiz-rating-chosen {
+  color: green;
+}
+
+.quiz-rating:nth-child(1) span {
+  margin-left: 0.2rem;
+  pointer-events: none;
+  cursor: none;
+}
+
+.quiz-rating:nth-child(2) {
+  transform: scale(-1);
 }
 
 @media screen and (min-width: 600px) {
@@ -465,6 +592,17 @@ body,
   .primary-nav a {
     border-bottom: none;
     margin-right: 20px;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    font-size: 1.3rem;
+    text-underline-offset: 1px;
+    transition: text-decoration-color 0.2s, text-underline-offset 1s;
+  }
+
+  .primary-nav a.active-link {
+    color: green;
+    text-decoration-color: green;
+    text-underline-offset: 3px;
   }
 
   .primary-nav::after {
@@ -480,7 +618,7 @@ body,
 
   .App > .quiz-creation-questions {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: auto 1fr;
     gap: 0;
   }
 
@@ -490,5 +628,13 @@ body,
     border-right: 1px solid black;
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .user-login-page main {
+    text-align: left;
+  }
+
+  .user-login-page input {
+    margin: 0;
   }
 }

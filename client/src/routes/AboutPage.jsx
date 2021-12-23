@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from '../components/Header';
 
-export default function AboutPage() {
+export default function AboutPage(props) {
   return (
     <div className="about-page">
-      <Header />
+      <Header props={props} />
       <main>
         <h1 className="page-title">About</h1>
         <p><span>Opus igitur est</span> dicere possit dura omni specie, “Tu autem in specie, non videntur, nec omnino res est.” Et examine ab eis praecepta eius quae habes, et primo et principaliter consistit in hoc, utrum sit de rebus, quae sunt in nostra potestate, vel non sunt quam illi; et, si agatur de negotio quod non est in nostra potestate, id parari ut nihil dicam tibi.

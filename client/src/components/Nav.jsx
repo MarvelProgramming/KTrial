@@ -17,9 +17,9 @@ export default function Nav() {
     }}
     >
         <nav className="primary-nav">
-          <Link to="/browse">Browse</Link>
-          <Link to="/quiz/creation">Create Quiz</Link>
-          <Link to="/about">About</Link>
+          <Link to="/browse" className={window.location.pathname === '/browse' ? 'active-link' : ''}>Browse</Link>
+          <Link to="/quiz/creation" className={window.location.pathname === '/quiz/creation' ? 'active-link' : ''}>Create Quiz</Link>
+          <Link to="/about" className={window.location.pathname === '/about' ? 'active-link' : ''}>About</Link>
         </nav>
       </div>
     </div>

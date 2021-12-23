@@ -1,12 +1,25 @@
+* {
+  font-family: Helvetica;
+}
+
 button {
   cursor: pointer;
+}
+
+.quiz-share-link {
+  align-items: center;
+}
+
+.quiz-share-link a {
+  overflow-wrap: break-word;
+  inline-size: 100%;
 }
 
 .page-title {
   color: green;
   font-size: clamp(1rem, 2.3rem + 5vw, 10rem);
   text-align: center;
-  margin-bottom: calc(1.5rem + 1vw);
+  margin-bottom: 0;
 }
 
 .filled-btn {

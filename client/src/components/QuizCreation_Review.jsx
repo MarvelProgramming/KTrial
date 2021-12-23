@@ -6,7 +6,7 @@ export default function QuizCreation_Review({ dispatch, quiz }) {
       <div>
         <h1>Review</h1>
         <p>Quiz Name: {quiz.name}</p>
-        <p>Description: {quiz.description}</p>
+        <p>Description: <br/>{quiz.description}</p>
         <p>Questions: {quiz.questions.length}</p>
         <p>Is Public: {quiz.isPublic.toString()}</p>
         <button className="hollow-btn" onClick={() => {
